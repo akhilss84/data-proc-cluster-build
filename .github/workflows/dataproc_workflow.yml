@@ -1,0 +1,39 @@
+name: Dataproc Workflow
+
+on:
+  push:
+    branches:
+      - Ansible
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup gcloud CLI
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: <your-project-id>
+
+    - name: Create Dataproc cluster
+      run: |
+        gcloud dataproc clusters create <cluster-name> \
+          --region=<region> \
+          --zone=<zone> \
+          --master-machine-type=<master-machine-type> \
+          --master-boot-disk-size=<master-boot-disk-size> \
+          --num-workers=<num-workers> \
+          --worker-machine-type=<worker-machine-type> \
+          --worker-boot-disk-size=<worker-boot-disk-size> \
+          --image-version=<image-version>
+
+    - name: Wait for 8 hours
+      run: sleep 8h
+
+    - name: Delete Dataproc cluster
+      run: |
+        gcloud dataproc clusters delete <cluster-name> --region=<region> --quiet
