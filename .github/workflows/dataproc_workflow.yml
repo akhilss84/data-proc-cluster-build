@@ -17,23 +17,23 @@ jobs:
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: <your-project-id>
+        project_id: <kyndryl-uat>
 
     - name: Create Dataproc cluster
       run: |
-        gcloud dataproc clusters create <cluster-name> \
-          --region=<region> \
-          --zone=<zone> \
-          --master-machine-type=<master-machine-type> \
-          --master-boot-disk-size=<master-boot-disk-size> \
-          --num-workers=<num-workers> \
-          --worker-machine-type=<worker-machine-type> \
-          --worker-boot-disk-size=<worker-boot-disk-size> \
-          --image-version=<image-version>
+        gcloud dataproc clusters create <dev-clus> \
+          --region=<us-central1> \
+          --zone=<us-central1-a> \
+          --master-machine-type=<n2-standard-2> \
+          --master-boot-disk-size=<100> \
+          --num-workers=<2> \
+          --worker-machine-type=<n2-standard-2> \
+          --worker-boot-disk-size=<100> \
+          --image-version=<rhel-cloud/rhel-7> \
 
     - name: Wait for 8 hours
       run: sleep 8h
 
     - name: Delete Dataproc cluster
       run: |
-        gcloud dataproc clusters delete <cluster-name> --region=<region> --quiet
+        gcloud dataproc clusters delete <dev-clus> --region=<us-central1> --quiet
