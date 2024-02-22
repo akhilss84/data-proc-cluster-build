@@ -16,11 +16,11 @@ jobs:
   build:
    runs-on: ubuntu-latest
 
-    steps:
+   steps:
     - name: Checkout code
       uses: actions/checkout
-	  - name: Set Up Google Cloud SDK Export
-	    uses: google-github-actions/setup-gcloud
+    - name: Set Up Google Cloud SDK Export
+      uses: google-github-actions/setup-gcloud
       with:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ env.exp_project_id }}
