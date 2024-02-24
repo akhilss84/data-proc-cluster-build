@@ -15,7 +15,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   create_cluster:
-   runs-on: ubuntu-latest
+   runs-on: akhilss84/docker.ios:latest
 
    steps:
     - name: Checkout code
