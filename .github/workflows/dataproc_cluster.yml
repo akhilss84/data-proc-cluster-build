@@ -20,7 +20,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Set Up Google Cloud SDK Export
-      uses: google-github-actions/setup-gcloud
+      uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ env.project_id }}
