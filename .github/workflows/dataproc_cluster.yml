@@ -30,7 +30,7 @@ jobs:
       run: |
         project_name="${{ github.event.inputs.project_id }}"
         gcloud dataproc clusters create dev-clus \
-          --project=${project_name} \
+          --project="${project_name}" \
           --region=us-east4 \
           --num-workers=2 \
           
