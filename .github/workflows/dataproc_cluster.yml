@@ -32,10 +32,10 @@ jobs:
           --region= "us-central1" \
           --zone= "us-central1-a" \
           --master-machine-type= "n2-standard-2" \
-          --master-boot-disk-size= "100" \
+          --master-boot-disk-size= "10 GB" \
           --num-workers= "2" \
           --worker-machine-type= "n2-standard-2" \
-          --worker-boot-disk-size= "100" \
+          --worker-boot-disk-size= "10 GB" \
           --image-version= "rhel-cloud/rhel-7" \
 
     - name: Wait for 8 hours
