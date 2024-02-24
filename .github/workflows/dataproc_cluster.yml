@@ -29,8 +29,9 @@ jobs:
     - name: Create Dataproc cluster
       run: |
         gcloud dataproc clusters create dev-clus \
-          --region= "us-central1" \
-          --zone= "us-central1-a" \
+          --region=us-east4 \
+          --num-workers=2 \
+          
     - name: Wait for 8 hours
       run: sleep 600
 
