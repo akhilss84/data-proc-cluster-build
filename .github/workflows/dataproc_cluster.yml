@@ -15,7 +15,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   create_cluster:
-   runs-on: akhilss84/docker.ios:latest
+   runs-on: ubuntu-latest
    steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
           --image-version=<rhel-cloud/rhel-7> \
 
     - name: Wait for 8 hours
-      run: sleep 8h
+      run: sleep 600
 
     - name: Delete Dataproc cluster
       run: |
