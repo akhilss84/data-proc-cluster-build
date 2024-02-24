@@ -28,7 +28,6 @@ jobs:
 
     - name: Create Dataproc cluster
       run: |
-        AUTH_TOCKEN=$(gcloud auth print-access-tocken)
         project_name=${{ github.event.inputs.project_id }}
         gcloud dataproc clusters create dev-clus \
           --project=${project_name} \
