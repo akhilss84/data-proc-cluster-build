@@ -16,7 +16,6 @@ jobs:
   # This workflow contains a single job called "build"
   create_cluster:
    runs-on: akhilss84/docker.ios:latest
-
    steps:
     - name: Checkout code
       uses: actions/checkout@v2
