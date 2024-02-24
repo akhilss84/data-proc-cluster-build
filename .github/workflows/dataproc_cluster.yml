@@ -23,16 +23,19 @@ jobs:
       uses: google-github-actions/setup-gcloud@v0.3.0
       with:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: ${{ github.event.inputs.project_id }}
+        project_id: ${{ env.project_id }}
         export_default_credentials: true
 
     - name: Create Dataproc cluster
       run: |
+        AUTH_TOCKEN=$(gcloud auth print-access-tocken)
+        project_name=${{ github.event.inputs.project_id }}
         gcloud dataproc clusters create dev-clus \
+          --project=${project_name} \
           --region=us-east4 \
           --num-workers=2 \
           
-    - name: Wait for 8 hours
+    - name: Wait for 10 Mintus
       run: sleep 600
 
     - name: Delete Dataproc cluster
