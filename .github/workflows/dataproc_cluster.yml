@@ -14,7 +14,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-   runs-on: self-hosted
+   runs-on: akhilss84/docker.ios:latest
 
    steps:
     - name: Checkout code
