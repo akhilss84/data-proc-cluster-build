@@ -32,7 +32,7 @@ jobs:
         gcloud dataproc clusters create dev-clus \
           --project="${project_name}" \
           --region=us-east4 \
-          --num-workers=2 \
+          --single-node \
           
     - name: Wait for 10 Mintus
       run: sleep 600
