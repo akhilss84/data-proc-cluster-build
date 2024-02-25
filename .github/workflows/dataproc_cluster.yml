@@ -34,9 +34,9 @@ jobs:
           --region=us-east4 \
           --single-node \
           
-    - name: Wait for 10 Mintus
-      run: sleep 600
+    - name: Wait for 2 Mintus
+      run: sleep 120
 
     - name: Delete Dataproc cluster
       run: |
-        gcloud dataproc clusters delete <dev-clus> --region=<us-central1> --quiet
+        gcloud dataproc clusters delete dev-clus--region=us-east4 --quiet
