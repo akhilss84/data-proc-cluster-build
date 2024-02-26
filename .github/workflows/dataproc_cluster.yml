@@ -39,4 +39,5 @@ jobs:
 
     - name: Delete Dataproc cluster
       run: |
+        project_name="${{ github.event.inputs.project_id }}"
         gcloud dataproc clusters delete dev-clus--region=us-east4 --quiet
